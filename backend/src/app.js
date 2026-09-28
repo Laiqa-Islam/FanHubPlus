@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import { EMBED_FRAME_ORIGINS } from "./lib/embeds.js";
 import { runWithContext } from "./lib/request-context.js";
 import { getCurrentUser } from "./lib/dal.js";
+import { connectToDatabase } from "./lib/db.js";
 import { isAssistantEnabled } from "./lib/gemini.js";
 import { webHandler } from "./lib/web-handler.js";
 import { actionsRouter } from "./routes/actions.js";
@@ -65,6 +66,40 @@ export function createApp() {
   });
   app.use(cookieParser());
 
+  const allowedOrigins = new Set([
+    "https://fanhub-plus.vercel.app",
+    "http://localhost:5210",
+    process.env.APP_URL?.replace(/\/$/, ""),
+  ].filter(Boolean));
+  app.use("/api", (req, res, next) => {
+    const origin = req.get("Origin");
+    if (origin && allowedOrigins.has(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      res.setHeader("Access-Control-Allow-Credentials", "true");
+      res.setHeader("Vary", "Origin");
+      if (req.method === "OPTIONS") {
+        res.setHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        res.status(204).end();
+        return;
+      }
+    }
+    next();
+  });
+
+  app.get("/api/health", async (_req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    try {
+      if (!process.env.SESSION_SECRET) throw new Error("SESSION_SECRET is missing");
+      const connection = await connectToDatabase();
+      await connection.connection.db.admin().ping();
+      res.json({ status: "ok" });
+    } catch (error) {
+      console.error("[api] health check failed:", error);
+      res.status(503).json({ status: "unavailable" });
+    }
+  });
+
   // ── Session (the root layout's data) ─────────────────────────────────────
   app.get("/api/session", (req, res, next) =>
     runWithContext(req, res, async () => {
@@ -115,3 +150,5 @@ export function createApp() {
 
   return app;
 }
+
+export default createApp();

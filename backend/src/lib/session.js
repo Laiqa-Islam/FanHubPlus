@@ -1,10 +1,13 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "./request-context.js";
 
-const secretKey = process.env.SESSION_SECRET;
-if (!secretKey)
-  throw new Error("SESSION_SECRET is missing. Add it to backend/.env.");
-const encodedKey = new TextEncoder().encode(secretKey);
+function sessionKey() {
+  const secret = process.env.SESSION_SECRET;
+  if (!secret) {
+    throw new Error("SESSION_SECRET is missing. Configure it in the backend environment.");
+  }
+  return new TextEncoder().encode(secret);
+}
 
 export const SESSION_COOKIE = "fanhub_session";
 const SESSION_DAYS = 7;
@@ -14,13 +17,13 @@ export async function encrypt(payload) {
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime(`${SESSION_DAYS}d`)
-    .sign(encodedKey);
+    .sign(sessionKey());
 }
 
 export async function decrypt(token) {
-  if (!token) return null;
+  if (!token || !process.env.SESSION_SECRET) return null;
   try {
-    const { payload } = await jwtVerify(token, encodedKey, {
+    const { payload } = await jwtVerify(token, sessionKey(), {
       algorithms: ["HS256"],
     });
     return payload;

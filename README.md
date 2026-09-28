@@ -55,6 +55,38 @@ npm run dev
 
 Or run them separately with `npm run dev:api` and `npm run dev:web`.
 
+### Vercel deployment (two projects)
+
+Create two Vercel projects from this same repository:
+
+| Project | Root Directory | Framework | Build / output |
+| --- | --- | --- | --- |
+| `fanhub-plus` | `frontend` | Vite | `npm run build` / `dist` |
+| `fanhub-backend` | `backend` | Express | Vercel imports the default app from `src/app.js`; no frontend build |
+
+`frontend/vercel.json` forwards `/api/*` to the backend and serves `index.html`
+for client-side routes. The browser uses relative `/api` URLs, so sessions stay
+on the frontend origin. Do not set a browser-side API URL or point the frontend
+directly at the backend for authenticated requests. The backend also accepts
+the exact frontend origin for direct API calls; this CORS allowance is not the
+primary connection mechanism.
+
+Set these **backend project** environment variables in Vercel for Production
+(and Preview if preview deployments need to work):
+
+- Required: `MONGODB_URI`, `SESSION_SECRET`, `APP_URL=https://fanhub-plus.vercel.app`
+- Uploads: `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`, `CLOUDINARY_FOLDER`
+- Email: `MAILTRAP_HOST`, `MAILTRAP_PORT`, `MAILTRAP_USER`, `MAILTRAP_PASS`, `MAIL_FROM`
+- Optional assistant: `GEMINI_API_KEY`, `GEMINI_MODEL`
+
+Use Vercel environment settings for secrets; never put them in `vercel.json` or
+commit `backend/.env`. Redeploy the backend after setting the variables, then
+redeploy the frontend. `https://fanhub-backend.vercel.app/api/health` must return
+`{"status":"ok"}` before checking the frontend. Then verify
+`https://fanhub-plus.vercel.app/api/session` returns JSON and browse the live
+home, login, and a protected page. A `503` from health means the backend
+configuration or database connection still needs attention.
+
 **Production:** build the frontend, then the backend serves it together with the API from one
 port (any non-`/api` GET falls back to `index.html` for client-side routing):
 

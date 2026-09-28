@@ -1,11 +1,5 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error("MONGODB_URI is missing. Add it to backend/.env.");
-}
-
 const globalForMongoose = globalThis;
 
 const cached = globalForMongoose._mongoose ?? {
@@ -26,6 +20,10 @@ function isUsable(conn) {
 }
 
 export async function connectToDatabase() {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    throw new Error("MONGODB_URI is missing. Configure it in the backend environment.");
+  }
   // A cached connection is only worth reusing while it is actually open.
   // Caching `conn` alone was a real trap: if the network dropped the socket
   // mid-session — a blocked port, a laptop sleeping, a hotspot changing — the
@@ -40,7 +38,7 @@ export async function connectToDatabase() {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, {
+    cached.promise = mongoose.connect(uri, {
       bufferCommands: false,
       // Fail fast instead of hanging a request for 30s when Atlas is
       // unreachable (wrong IP allowlist is the usual culprit).
