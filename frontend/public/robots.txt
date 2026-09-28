@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /bookmarks
+Disallow: /profile
+Disallow: /submit
+Disallow: /cart
+Disallow: /checkout
+Disallow: /tickets/
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /verify-email
+
+Sitemap: https://fanhub-plus.vercel.app/sitemap.xml

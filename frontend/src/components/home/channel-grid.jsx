@@ -40,11 +40,11 @@ export function FeatureSpread({ lead, secondary, rest }) {
         }
       />
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
+      <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
         {/* Lead. It needs its own Reveal scope: `.reveal` starts hidden in
              CSS, so an element carrying that class outside a Reveal container
              has nothing to animate it in and stays invisible for good. */}
-        <Reveal className="group">
+        <Reveal className="group min-w-0">
           <article className="reveal">
             <Link to={`/content/${lead.slug}`} className="block">
               <div
@@ -104,7 +104,7 @@ export function FeatureSpread({ lead, secondary, rest }) {
         </Reveal>
 
         {/* Up next — a queue, not more cards */}
-        <div>
+        <div className="min-w-0">
           <p className="mark mb-4 text-[var(--n2)]">Up next</p>
           <Reveal stagger={0.06} className="flex flex-col gap-2">
             {secondary.map((item, index) => {
