@@ -26,9 +26,9 @@ export function VideoPlayer({
   const [current, setCurrent] = useState(0);
   const [failed, setFailed] = useState(false);
 
-  // Held in a ref so the listener effect can stay on empty deps: re-running
-  // it on every render of the parent would tear down and re-attach eight
-  // media listeners per frame while the progress bar is updating.
+  // Keep the current callback without re-attaching media listeners on every
+  // parent render. The listener effect still needs to re-run after a failed
+  // player is retried, because that replaces the <video> element.
   const endedRef = useRef(onEnded);
   useEffect(() => {
     endedRef.current = onEnded;
@@ -45,6 +45,7 @@ export function VideoPlayer({
     }
   }, []);
   useEffect(() => {
+    if (failed) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -99,15 +100,15 @@ export function VideoPlayer({
       video.removeEventListener("timeupdate", onTime);
       video.removeEventListener("error", onError);
     };
-  }, []);
+  }, [failed, src]);
 
   // A selection made by clicking a card is a user gesture, but the player
   // remounts for the new source, so the attempt has to be made here. An
   // autoplay refusal is not an error — the poster and play button remain.
   useEffect(() => {
-    if (!autoPlay) return;
+    if (!autoPlay || failed) return;
     videoRef.current?.play().catch(() => {});
-  }, [autoPlay, src]);
+  }, [autoPlay, failed, src]);
   function seek(event) {
     const video = videoRef.current;
     if (!video || !video.duration) return;
@@ -130,8 +131,12 @@ export function VideoPlayer({
         <button
           type="button"
           onClick={() => {
+            setPlaying(false);
+            setWaiting(false);
+            setCurrent(0);
+            setProgress(0);
+            setDuration(0);
             setFailed(false);
-            videoRef.current?.load();
           }}
           className="mt-5 rounded-2xl border border-[var(--edge)] bg-[var(--paper)] px-4 py-2 font-mono text-[0.68rem] uppercase tracking-[0.14em] transition-shadow hover:shadow-[var(--lift-md)]"
         >
