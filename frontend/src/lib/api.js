@@ -35,7 +35,10 @@ async function readJson(response) {
 
 export async function loadPage({ request }, pathname) {
   const url = new URL(request.url);
-  const target = `${pathname ?? url.pathname}${url.search}`;
+  const route = pathname ?? url.pathname;
+  // Vercel's /api/:path* rewrite does not match a trailing slash after the
+  // empty home route. /api/loader is the same Express route and proxies cleanly.
+  const target = `${route === "/" ? "" : route}${url.search}`;
   const response = await fetch(`/api/loader${target}`, {
     signal: request.signal,
     credentials: "same-origin",
