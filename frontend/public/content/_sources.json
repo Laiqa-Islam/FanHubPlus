@@ -1,0 +1,312 @@
+{
+  "anime-jujutsu-kaisen.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/113415",
+    "title": "JUJUTSU KAISEN"
+  },
+  "anime-demon-slayer.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/101922",
+    "title": "Demon Slayer: Kimetsu no Yaiba"
+  },
+  "anime-attack-on-titan.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/16498",
+    "title": "Attack on Titan"
+  },
+  "anime-chainsaw-man.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/127230",
+    "title": "Chainsaw Man"
+  },
+  "anime-frieren.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/154587",
+    "title": "Frieren: Beyond Journey’s End"
+  },
+  "anime-vinland-saga.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/101348",
+    "title": "Vinland Saga"
+  },
+  "movies-your-name.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/21519",
+    "title": "Your Name."
+  },
+  "movies-spirited-away.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/199",
+    "title": "Spirited Away"
+  },
+  "movies-mugen-train.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/112151",
+    "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train"
+  },
+  "movies-suzume.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/142770",
+    "title": "Suzume"
+  },
+  "movies-akira.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/47",
+    "title": "Akira"
+  },
+  "movies-perfect-blue.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/437",
+    "title": "Perfect Blue"
+  },
+  "tv-death-note.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/1535",
+    "title": "Death Note"
+  },
+  "tv-classroom-elite.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/98659",
+    "title": "Classroom of the Elite"
+  },
+  "tv-kakegurui.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/98314",
+    "title": "Kakegurui"
+  },
+  "tv-code-geass.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/1575",
+    "title": "Code Geass: Lelouch of the Rebellion"
+  },
+  "tv-monster.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/19",
+    "title": "Monster"
+  },
+  "kpop-oshi-no-ko.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/150672",
+    "title": "OSHI NO KO"
+  },
+  "kpop-zombieland-saga.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/103871",
+    "title": "ZOMBIE LAND SAGA"
+  },
+  "gaming-elden-ring.jpg": {
+    "source": "Steam",
+    "url": "https://store.steampowered.com/app/1245620/",
+    "title": "Elden Ring"
+  },
+  "gaming-cyberpunk-2077.jpg": {
+    "source": "Steam",
+    "url": "https://store.steampowered.com/app/1091500/",
+    "title": "Cyberpunk 2077"
+  },
+  "gaming-baldurs-gate-3.jpg": {
+    "source": "Steam",
+    "url": "https://store.steampowered.com/app/1086940/",
+    "title": "Baldur's Gate 3"
+  },
+  "gaming-hades.jpg": {
+    "source": "Steam",
+    "url": "https://store.steampowered.com/app/1145360/",
+    "title": "Hades"
+  },
+  "gaming-sekiro.jpg": {
+    "source": "Steam",
+    "url": "https://store.steampowered.com/app/814380/",
+    "title": "Sekiro"
+  },
+  "gaming-persona-5.jpg": {
+    "source": "Steam",
+    "url": "https://store.steampowered.com/app/1687950/",
+    "title": "Persona 5 Royal"
+  },
+  "manga-one-piece.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/30013",
+    "title": "One Piece"
+  },
+  "manga-naruto.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/30011",
+    "title": "Naruto"
+  },
+  "manga-dragon-ball.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/30042",
+    "title": "Dragon Ball"
+  },
+  "manga-tokyo-ghoul.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/63327",
+    "title": "Tokyo Ghoul"
+  },
+  "manga-berserk.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/30002",
+    "title": "Berserk"
+  },
+  "manga-vagabond.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/30656",
+    "title": "Vagabond"
+  },
+  "comics-solo-leveling.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/105398",
+    "title": "Solo Leveling"
+  },
+  "comics-tower-of-god.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/85143",
+    "title": "Tower of God"
+  },
+  "comics-the-breaker.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/91629",
+    "title": "The Breaker"
+  },
+  "comics-noblesse.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/59983",
+    "title": "Noblesse"
+  },
+  "comics-omniscient-reader.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/manga/119257",
+    "title": "Omniscient Reader"
+  },
+  "kpop-carole-tuesday.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/101281",
+    "title": "Carole & Tuesday"
+  },
+  "kpop-idoly-pride.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/113814",
+    "title": "Idoly Pride"
+  },
+  "kpop-macross-frontier.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/3572",
+    "title": "Macross Frontier"
+  },
+  "cosplay-demon-slayer.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/101922",
+    "title": "Demon Slayer: Kimetsu no Yaiba"
+  },
+  "cosplay-jujutsu-kaisen.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/113415",
+    "title": "JUJUTSU KAISEN"
+  },
+  "cosplay-genshin.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/187676",
+    "title": "Genshin Impact - Sunset"
+  },
+  "cosplay-re-zero.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/21355",
+    "title": "Re:ZERO -Starting Life in Another World-"
+  },
+  "cosplay-fate-stay-night.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/anime/356",
+    "title": "Fate/stay night"
+  },
+  "char-luffy.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/40",
+    "title": "Luffy Monkey"
+  },
+  "char-zoro.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/62",
+    "title": "Zoro Roronoa"
+  },
+  "char-light-yagami.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/80",
+    "title": "Light Yagami"
+  },
+  "char-l-lawliet.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/71",
+    "title": "L Lawliet"
+  },
+  "char-ai-hoshino.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/172759",
+    "title": "Ai Hoshino"
+  },
+  "char-kana-arima.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/188783",
+    "title": "Kana Arima"
+  },
+  "char-ruby-hoshino.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/183884",
+    "title": "Ruby Hoshino"
+  },
+  "char-akane-kurokawa.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/203384",
+    "title": "Akane Kurokawa"
+  },
+  "char-shinobu-kocho.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/136070",
+    "title": "Shinobu Kochou"
+  },
+  "char-zenitsu.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/129131",
+    "title": "Zenitsu Agatsuma"
+  },
+  "char-mahito.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/133702",
+    "title": "Mahito"
+  },
+  "char-nanami.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/133704",
+    "title": "Kento Nanami"
+  },
+  "char-yumeko.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/121889",
+    "title": "Yumeko Jabami"
+  },
+  "char-kirari.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/122693",
+    "title": "Kirari Momobami"
+  },
+  "char-mary-saotome.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/122687",
+    "title": "Mary Saotome"
+  },
+  "char-ayanokoji.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/123212",
+    "title": "Kiyotaka Ayanokouji"
+  },
+  "char-horikita.png": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/123213",
+    "title": "Suzune Horikita"
+  },
+  "char-sakayanagi.jpg": {
+    "source": "AniList",
+    "url": "https://anilist.co/character/124691",
+    "title": "Arisu Sakayanagi"
+  }
+}

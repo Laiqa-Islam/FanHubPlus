@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- `no-js` is removed by the theme script; it keeps reveal animations from
+     hiding content when JavaScript is unavailable. -->
+<html lang="en" class="no-js" data-scroll-behavior="smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <title>Fan Hub Plus — The city glows louder after dark</title>
+    <meta
+      name="description"
+      content="Anime, gaming, film, television, K-Pop, comics, manga and cosplay — eight channels lit in neon. Stream the drops, open the character files, and save what you love."
+    />
+    <meta name="keywords" content="fandom,anime,gaming,K-Pop,comics,manga,cosplay" />
+
+    <!-- Unbounded (display), Inter (body), JetBrains Mono (codes, counts). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Unbounded:wght@500;700;900&display=swap"
+    />
+
+    <!-- Runs before paint so the chosen theme, text size and motion setting are
+         on screen immediately rather than flashing the defaults. Keep the keys
+         in sync with components/providers/theme-provider.jsx. -->
+    <script>
+      (function () {
+        try {
+          var d = document.documentElement;
+          d.classList.remove("no-js");
+          var t = localStorage.getItem("fanhub:theme") || "dark";
+          if (t === "system") {
+            t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          }
+          d.dataset.theme = t === "light" ? "light" : "dark";
+          var f = localStorage.getItem("fanhub:font-scale");
+          if (f) d.style.setProperty("--font-scale", f + "%");
+          d.dataset.reducedMotion = localStorage.getItem("fanhub:reduced-motion") === "true";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="flex min-h-dvh flex-col">
+    <div id="root" class="contents"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

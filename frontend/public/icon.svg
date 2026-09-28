@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!--
+    The Fan Hub Plus mark: a speech bubble with a plus inside it.
+
+    Drawn rather than exported from the supplied artwork because a favicon is
+    rendered at 16px, where a downscaled raster of a glowing logo turns to
+    mush. Flat strokes at this size keep the bubble and the plus readable,
+    and the file stays under a kilobyte.
+  -->
+  <rect width="64" height="64" rx="14" fill="#141626"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer bubble, cyan -->
+    <path d="M14 15h36a5 5 0 0 1 5 5v19a5 5 0 0 1-5 5H27l-8 9v-9h-5a5 5 0 0 1-5-5V20a5 5 0 0 1 5-5Z"
+          stroke="#25f4ee" stroke-width="3.4"/>
+    <!-- Inner bubble, magenta -->
+    <rect x="18" y="21" width="28" height="17" rx="4" stroke="#ff2fb4" stroke-width="2.6"/>
+  </g>
+  <!-- The plus -->
+  <path d="M32 24.5v10.5M26.75 29.75h10.5" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+</svg>

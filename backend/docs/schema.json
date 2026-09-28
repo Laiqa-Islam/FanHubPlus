@@ -1,0 +1,2018 @@
+{
+  "database": "fanhubplus",
+  "generatedAt": "2026-09-27T13:19:16.791Z",
+  "engine": "MongoDB (Mongoose)",
+  "collections": [
+    {
+      "model": "ActivityLog",
+      "collection": "activitylogs",
+      "fields": [
+        {
+          "path": "userId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false,
+          "ref": "User"
+        },
+        {
+          "path": "action",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "registered",
+            "logged-in",
+            "viewed-content",
+            "bookmarked",
+            "unbookmarked",
+            "rated",
+            "submitted-feedback",
+            "submitted-content",
+            "updated-profile",
+            "chatbot-message",
+            "claimed-pass",
+            "released-pass"
+          ]
+        },
+        {
+          "path": "label",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "targetType",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "targetId",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "href",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "userId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "action": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "userId": 1,
+            "createdAt": -1
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 5
+    },
+    {
+      "model": "Bookmark",
+      "collection": "bookmarks",
+      "fields": [
+        {
+          "path": "userId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false,
+          "ref": "User"
+        },
+        {
+          "path": "targetType",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "content",
+            "character",
+            "merchandise",
+            "event"
+          ]
+        },
+        {
+          "path": "targetId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "note",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "userId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "userId": 1,
+            "targetType": 1,
+            "targetId": 1
+          },
+          "options": {
+            "unique": true
+          }
+        }
+      ],
+      "documentCount": 1
+    },
+    {
+      "model": "CharacterProfile",
+      "collection": "characterprofiles",
+      "fields": [
+        {
+          "path": "name",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "slug",
+          "type": "String",
+          "required": true,
+          "unique": true
+        },
+        {
+          "path": "category",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "anime",
+            "gaming",
+            "movies",
+            "tv-shows",
+            "k-pop",
+            "comics",
+            "manga",
+            "cosplay"
+          ]
+        },
+        {
+          "path": "franchise",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "bio",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "imageUrl",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "imagePublicId",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "kanji",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "role",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "signature",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "grade",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "sealMark",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "accent",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "affiliation",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "status",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "relationships",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "skills",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "troops",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "weapons",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "stats",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "traits",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "debutYear",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "viewCount",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "popularityScore",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "slug": 1
+          },
+          "options": {
+            "unique": true
+          }
+        },
+        {
+          "keys": {
+            "category": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "franchise": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "popularityScore": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "name": "text",
+            "franchise": "text",
+            "traits": "text"
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 36
+    },
+    {
+      "model": "ChatbotQuery",
+      "collection": "chatbotqueries",
+      "fields": [
+        {
+          "path": "userId",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false,
+          "default": "null",
+          "ref": "User"
+        },
+        {
+          "path": "sessionId",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "message",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "response",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "matchedFaqId",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false,
+          "default": "null",
+          "ref": "FaqEntry"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "userId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "sessionId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "sessionId": 1,
+            "createdAt": 1
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 2
+    },
+    {
+      "model": "Content",
+      "collection": "contents",
+      "fields": [
+        {
+          "path": "title",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "slug",
+          "type": "String",
+          "required": true,
+          "unique": true
+        },
+        {
+          "path": "category",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "anime",
+            "gaming",
+            "movies",
+            "tv-shows",
+            "k-pop",
+            "comics",
+            "manga",
+            "cosplay"
+          ]
+        },
+        {
+          "path": "type",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "article",
+            "video",
+            "audio",
+            "image"
+          ]
+        },
+        {
+          "path": "summary",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "body",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "coverImage",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "coverPublicId",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "mediaUrl",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "mediaPoster",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "mediaCredit",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "mediaRuntime",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "mediaTags",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "gallery",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false,
+          "default": "[]"
+        },
+        {
+          "path": "timeline",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false,
+          "default": "[]"
+        },
+        {
+          "path": "embedProvider",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\"",
+          "enum": [
+            "youtube",
+            "vimeo",
+            "spotify",
+            "soundcloud",
+            ""
+          ]
+        },
+        {
+          "path": "embedId",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "transcript",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "genre",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "tags",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "releaseDate",
+          "type": "Date",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "viewCount",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "popularityScore",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "ratingSum",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "ratingCount",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "isFeatured",
+          "type": "Boolean",
+          "required": false,
+          "unique": false,
+          "default": "false"
+        },
+        {
+          "path": "status",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"published\"",
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        {
+          "path": "authorId",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false,
+          "default": "null",
+          "ref": "User"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "slug": 1
+          },
+          "options": {
+            "unique": true
+          }
+        },
+        {
+          "keys": {
+            "category": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "type": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "releaseDate": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "popularityScore": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "isFeatured": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "status": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "title": "text",
+            "summary": "text",
+            "tags": "text"
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 63
+    },
+    {
+      "model": "Event",
+      "collection": "events",
+      "fields": [
+        {
+          "path": "title",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "slug",
+          "type": "String",
+          "required": true,
+          "unique": true
+        },
+        {
+          "path": "category",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "anime",
+            "gaming",
+            "movies",
+            "tv-shows",
+            "k-pop",
+            "comics",
+            "manga",
+            "cosplay"
+          ]
+        },
+        {
+          "path": "type",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"convention\"",
+          "enum": [
+            "convention",
+            "meetup",
+            "screening",
+            "premiere",
+            "concert"
+          ]
+        },
+        {
+          "path": "description",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "story",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "venue",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "city",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "country",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "location.type",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"Point\"",
+          "enum": [
+            "Point"
+          ]
+        },
+        {
+          "path": "location.coordinates",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false,
+          "default": "[0,0]"
+        },
+        {
+          "path": "startsAt",
+          "type": "Date",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "endsAt",
+          "type": "Date",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "ticketUrl",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "capacity",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "imageUrl",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "isHighlight",
+          "type": "Boolean",
+          "required": false,
+          "unique": false,
+          "default": "false"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "slug": 1
+          },
+          "options": {
+            "unique": true
+          }
+        },
+        {
+          "keys": {
+            "category": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "type": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "city": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "startsAt": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "isHighlight": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "location": "2dsphere"
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 16
+    },
+    {
+      "model": "EventTicket",
+      "collection": "eventtickets",
+      "fields": [
+        {
+          "path": "userId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false,
+          "ref": "User"
+        },
+        {
+          "path": "eventId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false,
+          "ref": "Event"
+        },
+        {
+          "path": "code",
+          "type": "String",
+          "required": true,
+          "unique": true
+        },
+        {
+          "path": "holderName",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "holderEmail",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "status",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"pending\"",
+          "enum": [
+            "pending",
+            "confirmed",
+            "rejected",
+            "released"
+          ]
+        },
+        {
+          "path": "decidedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "decidedBy",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false,
+          "default": "null",
+          "ref": "User"
+        },
+        {
+          "path": "decisionNote",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "userId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "eventId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "code": 1
+          },
+          "options": {
+            "unique": true
+          }
+        },
+        {
+          "keys": {
+            "status": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "userId": 1,
+            "eventId": 1
+          },
+          "options": {
+            "unique": true,
+            "partialFilterExpression": {
+              "status": {
+                "$in": [
+                  "pending",
+                  "confirmed"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "documentCount": 2
+    },
+    {
+      "model": "FanSubmission",
+      "collection": "fansubmissions",
+      "fields": [
+        {
+          "path": "userId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false,
+          "ref": "User"
+        },
+        {
+          "path": "title",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "category",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "anime",
+            "gaming",
+            "movies",
+            "tv-shows",
+            "k-pop",
+            "comics",
+            "manga",
+            "cosplay"
+          ]
+        },
+        {
+          "path": "body",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "format",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "default": "\"article\"",
+          "enum": [
+            "article",
+            "gallery",
+            "audio",
+            "video",
+            "embed"
+          ]
+        },
+        {
+          "path": "media",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false,
+          "default": "[]"
+        },
+        {
+          "path": "embedProvider",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\"",
+          "enum": [
+            "youtube",
+            "vimeo",
+            "spotify",
+            "soundcloud",
+            ""
+          ]
+        },
+        {
+          "path": "embedId",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "transcript",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "ownWorkDeclared",
+          "type": "Boolean",
+          "required": false,
+          "unique": false,
+          "default": "false"
+        },
+        {
+          "path": "mediaUrl",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "mediaPublicId",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "status",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"pending\"",
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        {
+          "path": "reviewedBy",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false,
+          "default": "null",
+          "ref": "User"
+        },
+        {
+          "path": "reviewedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "reviewNote",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "publishedContentId",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false,
+          "default": "null",
+          "ref": "Content"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "userId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "category": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "format": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "status": 1
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 0
+    },
+    {
+      "model": "FaqEntry",
+      "collection": "faqentries",
+      "fields": [
+        {
+          "path": "question",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "answer",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "tags",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "category",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "isPublished",
+          "type": "Boolean",
+          "required": false,
+          "unique": false,
+          "default": "true"
+        },
+        {
+          "path": "useCount",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "isPublished": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "question": "text",
+            "answer": "text",
+            "tags": "text"
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 8
+    },
+    {
+      "model": "Feedback",
+      "collection": "feedbacks",
+      "fields": [
+        {
+          "path": "userId",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false,
+          "default": "null",
+          "ref": "User"
+        },
+        {
+          "path": "name",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "email",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "type",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "bug",
+            "suggestion",
+            "query"
+          ]
+        },
+        {
+          "path": "subject",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "message",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "status",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"open\"",
+          "enum": [
+            "open",
+            "in-review",
+            "resolved"
+          ]
+        },
+        {
+          "path": "adminNote",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "userId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "type": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "status": 1
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 0
+    },
+    {
+      "model": "MerchandiseItem",
+      "collection": "merchandiseitems",
+      "fields": [
+        {
+          "path": "name",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "slug",
+          "type": "String",
+          "required": true,
+          "unique": true
+        },
+        {
+          "path": "category",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "anime",
+            "gaming",
+            "movies",
+            "tv-shows",
+            "k-pop",
+            "comics",
+            "manga",
+            "cosplay"
+          ]
+        },
+        {
+          "path": "description",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "priceCents",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "imageUrl",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "imagePublicId",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "gallery",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "tag",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"Collectible\"",
+          "enum": [
+            "Limited Edition",
+            "Pre-Order",
+            "Collectible",
+            "Exclusive",
+            "Restock"
+          ]
+        },
+        {
+          "path": "isUpcoming",
+          "type": "Boolean",
+          "required": false,
+          "unique": false,
+          "default": "false"
+        },
+        {
+          "path": "releaseDate",
+          "type": "Date",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "viewCount",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "popularityScore",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "slug": 1
+          },
+          "options": {
+            "unique": true
+          }
+        },
+        {
+          "keys": {
+            "category": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "tag": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "isUpcoming": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "popularityScore": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "name": "text",
+            "description": "text"
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 41
+    },
+    {
+      "model": "RateBucket",
+      "collection": "ratebuckets",
+      "fields": [
+        {
+          "path": "_id",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "count",
+          "type": "Number",
+          "required": true,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "path": "resetAt",
+          "type": "Date",
+          "required": true,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "resetAt": 1
+          },
+          "options": {
+            "expireAfterSeconds": 0
+          }
+        }
+      ],
+      "documentCount": 0
+    },
+    {
+      "model": "Rating",
+      "collection": "ratings",
+      "fields": [
+        {
+          "path": "userId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false,
+          "ref": "User"
+        },
+        {
+          "path": "contentId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false,
+          "ref": "Content"
+        },
+        {
+          "path": "stars",
+          "type": "Number",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "thumb",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "null",
+          "enum": [
+            "up",
+            "down",
+            null
+          ]
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "userId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "contentId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "userId": 1,
+            "contentId": 1
+          },
+          "options": {
+            "unique": true
+          }
+        }
+      ],
+      "documentCount": 0
+    },
+    {
+      "model": "Token",
+      "collection": "tokens",
+      "fields": [
+        {
+          "path": "userId",
+          "type": "ObjectId",
+          "required": true,
+          "unique": false,
+          "ref": "User"
+        },
+        {
+          "path": "tokenHash",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "purpose",
+          "type": "String",
+          "required": true,
+          "unique": false,
+          "enum": [
+            "email-verification",
+            "password-reset"
+          ]
+        },
+        {
+          "path": "expiresAt",
+          "type": "Date",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "usedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "userId": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "tokenHash": 1
+          },
+          "options": {}
+        },
+        {
+          "keys": {
+            "expiresAt": 1
+          },
+          "options": {
+            "expireAfterSeconds": 0
+          }
+        }
+      ],
+      "documentCount": 0
+    },
+    {
+      "model": "User",
+      "collection": "users",
+      "fields": [
+        {
+          "path": "name",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "email",
+          "type": "String",
+          "required": true,
+          "unique": true
+        },
+        {
+          "path": "passwordHash",
+          "type": "String",
+          "required": true,
+          "unique": false
+        },
+        {
+          "path": "role",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"user\"",
+          "enum": [
+            "visitor",
+            "user",
+            "admin"
+          ]
+        },
+        {
+          "path": "avatarUrl",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "avatarPublicId",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "bio",
+          "type": "String",
+          "required": false,
+          "unique": false,
+          "default": "\"\""
+        },
+        {
+          "path": "favoriteCategories",
+          "type": "Mixed[]",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "preferences.fontScale",
+          "type": "Number",
+          "required": false,
+          "unique": false,
+          "default": "100"
+        },
+        {
+          "path": "preferences.reducedMotion",
+          "type": "Boolean",
+          "required": false,
+          "unique": false,
+          "default": "false"
+        },
+        {
+          "path": "emailVerifiedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "lastLoginAt",
+          "type": "Date",
+          "required": false,
+          "unique": false,
+          "default": "null"
+        },
+        {
+          "path": "_id",
+          "type": "ObjectId",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "createdAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        },
+        {
+          "path": "updatedAt",
+          "type": "Date",
+          "required": false,
+          "unique": false
+        }
+      ],
+      "indexes": [
+        {
+          "keys": {
+            "email": 1
+          },
+          "options": {
+            "unique": true
+          }
+        },
+        {
+          "keys": {
+            "role": 1
+          },
+          "options": {}
+        }
+      ],
+      "documentCount": 3
+    }
+  ]
+}

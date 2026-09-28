@@ -1,0 +1,35 @@
+{
+  "name": "fanhub-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Fan Hub Plus API — Node.js + Express + MongoDB (Mongoose)",
+  "engines": {
+    "node": ">=20.9"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file=.env src/server.js",
+    "start": "node --env-file=.env src/server.js",
+    "seed": "node --env-file=.env scripts/seed.js",
+    "seed:merch": "node --env-file=.env scripts/seed-merch.js",
+    "schema": "node --env-file=.env scripts/export-schema.js",
+    "fetch-art": "node scripts/fetch-art.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.11.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "jose": "^6.2.12",
+    "mongoose": "^9.10.2",
+    "multer": "^2.0.2",
+    "nodemailer": "^10.0.10",
+    "qrcode": "^1.5.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.7"
+  }
+}
